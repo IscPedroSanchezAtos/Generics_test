@@ -7,14 +7,11 @@ public class MainClass {
         behaviorsClass behaviors = new behaviorsClass();
 
         ArrayList col= new ArrayList();
-        //int col[] = new int[]{10,12,45};
         int op;
         int coll;
 
 
-        /*for(int i = 1; i< col.toArray().length; i++){
 
-        }*/
 
         do{
             Scanner scr = new Scanner (System.in);
@@ -37,7 +34,7 @@ public class MainClass {
             }
 
 
-            //col.add(coll);
+
 
 
     } while(op != 2);
