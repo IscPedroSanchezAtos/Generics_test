@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class MainClass {
 
     public static void main (String[] args){
+        behaviorsClass behaviors = new behaviorsClass();
+
         ArrayList col= new ArrayList();
         //int col[] = new int[]{10,12,45};
         int op;
