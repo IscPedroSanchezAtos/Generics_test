@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class MainClass {
 
     public static void main (String[] args){
-        behaviorsClass behaviors = new behaviorsClass();
-
+        behaviorsClass behavior = new behaviorsClass();
         ArrayList col= new ArrayList();
+
         int op;
         int coll;
 
@@ -25,7 +25,7 @@ public class MainClass {
                 case 1:
                     System.out.println("Ingrese el valor");
                     coll = scr.nextInt();
-                    col.add(coll);
+
                     break;
                 case 2:
                     System.out.println(col);
