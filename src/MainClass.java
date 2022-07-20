@@ -4,26 +4,25 @@ import java.util.Scanner;
 
 public class MainClass {
 
+
+
     public static <T> void main (String[] args){
         behaviorsClass<T> behavior = new behaviorsClass<>();
         List<Integer> col= new ArrayList<>();
 
-        int op;
-        int coll;
-        int resultado;
-    T t;
+        int op,coll,resul,value1,index2,index1,value2;
 
 
         do{
             Scanner scr = new Scanner (System.in);
             System.out.println("Elige una opción:" + "\n" +
-                    "1.- Agregar un valor al array" + "\n" +
-                    "2.- Mostrar el numero mayor" + "\n"+
-                    "3.- Mostrar el numero menor" + "\n"+
-                    "4.- Mostrar la suma de dos valores en el array" + "\n"+
-                    "5.- Mostrar el producto de dos valores en el array" + "\n"+
-                    "6.- Mostrar el factorial de un valor en el array" + "\n"+
-                    "7.- Mostrar los numeros primos en el array" + "\n"+
+                    "1.- Add a value to array" + "\n" +
+                    "2.- Get the greatest number" + "\n"+
+                    "3.- Get the smallest number" + "\n"+
+                    "4.- Get the addition of two values into array" + "\n"+
+                    "5.- Get the product of two values into array" + "\n"+
+                    "6.- Get the factorial of a value in the array" + "\n"+
+                    "7.- Get the prime numbers in the array" + "\n"+
                     "8.- Out" + "\n"
 
             );
@@ -32,7 +31,7 @@ public class MainClass {
             switch(op){
                 case 1:
                     try {
-                        System.out.println("Ingrese el valor");
+                        System.out.println("Enter the value");
                         coll = scr.nextInt();
                         col.add(coll);
                         System.out.println(col);
@@ -43,33 +42,33 @@ public class MainClass {
                     break;
                 case 2:
                     System.out.println(col);
-                    resultado = (int) behavior.maxValue((T[]) col.toArray());
+                    resul = (int) behavior.maxValue((T[]) col.toArray());
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
-                    System.out.println("El numero mayor es: " + resultado+"\n");
+                    System.out.println("the greatest value is: " + resul+"\n");
 
                     break;
                 case 3:
                     System.out.println(col);
-                    resultado = (int) behavior.minValue((T[]) col.toArray());
+                    resul = (int) behavior.minValue((T[]) col.toArray());
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
-                    System.out.println("El numero menor es: " + resultado+"\n");
+                    System.out.println("the smallest value : " + resul+"\n");
 
                     break;
                 case 4:
 
                     System.out.println("select the position of the first value you want to add: " );
                     System.out.println(col);
-                    int value1 = scr.nextInt();
+                    value1 = scr.nextInt();
 
                     System.out.println("select the position of the second value you want to add: " );
                     System.out.println(col);
-                    int value2 = scr.nextInt();
-                    int index1 = col.get(value1);
-                    int index2 = col.get(value2);
+                    value2 = scr.nextInt();
+                    index1 = col.get(value1);
+                    index2 = col.get(value2);
 
-                    resultado = (int) behavior.sum(index1,index2);
+                    resul = (int) behavior.sum(index1,index2);
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
-                    System.out.println("the selected values were "+index1+" and "+index2+" the addition of these is: " + resultado+"\n");
+                    System.out.println("the selected values were "+index1+" and "+index2+" the addition of these is: " + resul+"\n");
 
                     break;
                 case 5:
@@ -83,9 +82,9 @@ public class MainClass {
                     index1 = col.get(value1);
                     index2 = col.get(value2);
 
-                    resultado = (int) behavior.product(index1,index2);
+                    resul = (int) behavior.product(index1,index2);
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
-                    System.out.println("the selected values were "+index1+" and "+index2+" the product of these is: " + resultado+"\n");
+                    System.out.println("the selected values were "+index1+" and "+index2+" the product of these is: " + resul+"\n");
 
 
                     break;
@@ -95,19 +94,22 @@ public class MainClass {
                     value1 = scr.nextInt();
                     index1 = col.get(value1);
 
-                    resultado = (int) behavior.factorial(index1);
+                    resul = (int) behavior.factorial(index1);
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
-                    System.out.println("the factorial of: "+index1+" is: " + resultado+"\n");
+                    System.out.println("the factorial of: "+index1+" is: " + resul+"\n");
 
                     break;
                 case 7:
                     System.out.println(col);
-                    //resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
-
-                    //System.out.println("El numero mayor es: " + resultado+"\n");
+                    List<Integer> res = new ArrayList<>();
+                    res = (List<Integer>) behavior.prime(col);
+                    System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+                    System.out.println("The prime numbers in the collection are: " + res+"\n");
 
                     break;
                 case 8:
+                    System.out.println("see you soon XD");
+
                     break;
 
             }

@@ -6,7 +6,7 @@ public interface DeclarationInterface<T> {
     T minValue(T[] collection);
     T sum(Integer index1, Integer index2);
     T factorial (Integer index1);
-    T prime (T[] collection);
+   // T prime (T[] collection);
 
 
 }

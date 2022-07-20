@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class behaviorsClass<T> implements DeclarationInterface<T> {
 
@@ -43,10 +45,28 @@ public class behaviorsClass<T> implements DeclarationInterface<T> {
         return (T) total;
     }
 
-    @Override
-    public T prime(T[] collection) {
-        return null;
+    /* @Override
+
+   public T prime(T[] collection) {
+
+
+
+        return (T) primes;
+    }*/
+
+    public T prime(List<Integer> col) {
+        List<Integer> primes= new ArrayList<>();
+        for(int i = 0; i< col.size(); i++){
+            int div= 0;
+            for(int j = 1; j<=(Integer) col.get(i); j++){
+                if((Integer) col.get(i) %j==0){
+                    div++;
+                }
+            }
+            if(div == 2){
+                primes.add((Integer) col.get(i));
+            }
+        }
+        return (T) primes;
     }
-
-
 }
