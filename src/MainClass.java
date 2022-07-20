@@ -1,16 +1,17 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainClass {
 
-    public static void main (String[] args){
-        behaviorsClass behavior = new behaviorsClass();
-        ArrayList col= new ArrayList();
+    public static <T> void main (String[] args){
+        behaviorsClass<T> behavior = new behaviorsClass<>();
+        List<Integer> col= new ArrayList<>();
 
         int op;
         int coll;
         int resultado;
-
+    T t;
 
 
         do{
@@ -23,60 +24,89 @@ public class MainClass {
                     "5.- Mostrar el producto de dos valores en el array" + "\n"+
                     "6.- Mostrar el factorial de un valor en el array" + "\n"+
                     "7.- Mostrar los numeros primos en el array" + "\n"+
-                    "8.- Mostrar los numeros primos en el array" + "\n"
+                    "8.- Out" + "\n"
 
             );
             op = scr.nextInt();
 
             switch(op){
                 case 1:
-                    System.out.println("Ingrese el valor");
-                    coll = scr.nextInt();
-                    col.add(coll);
-                    System.out.println(col);
+                    try {
+                        System.out.println("Ingrese el valor");
+                        coll = scr.nextInt();
+                        col.add(coll);
+                        System.out.println(col);
+                    }catch (ArrayIndexOutOfBoundsException ex){
+                        System.out.println(ex);
+
+                    }
                     break;
                 case 2:
                     System.out.println(col);
-                    resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
+                    resultado = (int) behavior.maxValue((T[]) col.toArray());
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
                     System.out.println("El numero mayor es: " + resultado+"\n");
 
                     break;
                 case 3:
                     System.out.println(col);
-                    resultado = (int) behavior.minValue(col.toArray(new Object[0]));
+                    resultado = (int) behavior.minValue((T[]) col.toArray());
                     System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
                     System.out.println("El numero menor es: " + resultado+"\n");
 
                     break;
-                /*case 4:
-                    System.out.println(col);
-                    resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
+                case 4:
 
-                    System.out.println("El numero mayor es: " + resultado+"\n");
+                    System.out.println("select the position of the first value you want to add: " );
+                    System.out.println(col);
+                    int value1 = scr.nextInt();
+
+                    System.out.println("select the position of the second value you want to add: " );
+                    System.out.println(col);
+                    int value2 = scr.nextInt();
+                    int index1 = col.get(value1);
+                    int index2 = col.get(value2);
+
+                    resultado = (int) behavior.sum(index1,index2);
+                    System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+                    System.out.println("the selected values were "+index1+" and "+index2+" the addition of these is: " + resultado+"\n");
 
                     break;
                 case 5:
+                    System.out.println("select the position of the first value you want to get the product: " );
                     System.out.println(col);
-                    resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
+                    value1 = scr.nextInt();
 
-                    System.out.println("El numero mayor es: " + resultado+"\n");
+                    System.out.println("select the position of the second value you want to get the product: " );
+                    System.out.println(col);
+                    value2 = scr.nextInt();
+                    index1 = col.get(value1);
+                    index2 = col.get(value2);
+
+                    resultado = (int) behavior.product(index1,index2);
+                    System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+                    System.out.println("the selected values were "+index1+" and "+index2+" the product of these is: " + resultado+"\n");
+
 
                     break;
                 case 6:
+                    System.out.println("select the position of the value you want to get the factorial: " );
                     System.out.println(col);
-                    resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
+                    value1 = scr.nextInt();
+                    index1 = col.get(value1);
 
-                    System.out.println("El numero mayor es: " + resultado+"\n");
+                    resultado = (int) behavior.factorial(index1);
+                    System.out.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+                    System.out.println("the factorial of: "+index1+" is: " + resultado+"\n");
 
                     break;
                 case 7:
                     System.out.println(col);
-                    resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
+                    //resultado = (int) behavior.maxValue(col.toArray(new Object[0]));
 
-                    System.out.println("El numero mayor es: " + resultado+"\n");
+                    //System.out.println("El numero mayor es: " + resultado+"\n");
 
-                    break;*/
+                    break;
                 case 8:
                     break;
 
